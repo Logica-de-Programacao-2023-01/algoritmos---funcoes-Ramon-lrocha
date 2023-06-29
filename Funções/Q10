@@ -1,0 +1,17 @@
+package main
+
+import (
+	"errors"
+	"sort"
+)
+
+func ordenarValores(slice []int) ([]int, error) {
+	if len(slice) == 0 {
+		return nil, errors.New("O slice está vazio")
+	}
+
+	ordenado := make([]int, len(slice))
+	copy(ordenado, slice)
+	sort.Ints(ordenado)
+	return ordenado, nil
+}

@@ -1,0 +1,15 @@
+package main
+
+import (
+	"errors"
+	"strings"
+)
+
+func extrairPalavras(str string) ([]string, error) {
+	if str == "" {
+		return nil, errors.New("A string está vazia")
+	}
+
+	palavras := strings.Fields(str)
+	return palavras, nil
+}

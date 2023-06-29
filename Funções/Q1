@@ -1,0 +1,17 @@
+package main
+
+import "errors"
+
+func calcularMedia(slice []int) (float64, error) {
+	if len(slice) == 0 {
+		return 0, errors.New("O slice está vazio")
+	}
+
+	total := 0
+	for _, num := range slice {
+		total += num
+	}
+
+	media := float64(total) / float64(len(slice))
+	return media, nil
+}

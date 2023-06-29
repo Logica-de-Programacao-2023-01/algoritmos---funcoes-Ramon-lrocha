@@ -1,0 +1,21 @@
+package main
+
+import "errors"
+
+func verificarPrimo(num int) (bool, error) {
+	if num < 0 {
+		return false, errors.New("O número é negativo")
+	}
+
+	if num < 2 {
+		return false, nil
+	}
+
+	for i := 2; i*i <= num; i++ {
+		if num%i == 0 {
+			return false, nil
+		}
+	}
+
+	return true, nil
+}

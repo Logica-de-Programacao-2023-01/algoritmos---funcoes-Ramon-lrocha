@@ -1,0 +1,17 @@
+package main
+
+import "errors"
+
+func posicaoElemento(slice []int, valor int) (int, error) {
+	if len(slice) == 0 {
+		return -1, errors.New("O slice está vazio")
+	}
+
+	for i, num := range slice {
+		if num == valor {
+			return i, nil
+		}
+	}
+
+	return -1, nil
+}

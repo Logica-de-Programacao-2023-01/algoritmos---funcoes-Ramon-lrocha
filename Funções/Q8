@@ -1,0 +1,18 @@
+package main
+
+import "errors"
+
+func filtrarPares(slice []int) ([]int, error) {
+	if len(slice) == 0 {
+		return nil, errors.New("O slice está vazio")
+	}
+
+	pares := []int{}
+	for _, num := range slice {
+		if num%2 == 0 {
+			pares = append(pares, num)
+		}
+	}
+
+	return pares, nil
+}
