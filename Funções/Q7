@@ -1,0 +1,16 @@
+package main
+
+import "errors"
+
+func aplicarFuncao(slice []int, fn func(int) int) ([]int, error) {
+	if len(slice) == 0 {
+		return nil, errors.New("O slice está vazio")
+	}
+
+	result := []int{}
+	for _, num := range slice {
+		result = append(result, fn(num))
+	}
+
+	return result, nil
+}

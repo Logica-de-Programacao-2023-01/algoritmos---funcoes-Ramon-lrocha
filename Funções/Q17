@@ -1,0 +1,27 @@
+package main
+
+import (
+	"errors"
+	"sort"
+)
+
+func sortStrings(slice []string) ([]string, error) {
+	if len(slice) == 0 {
+		return nil, errors.New("O slice está vazio")
+	}
+
+	sort.Strings(slice)
+
+	return slice, nil
+}
+
+func main() {
+	slice := []string{"banana", "maçã", "laranja", "abacaxi"}
+
+	sorted, err := sortStrings(slice)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Strings ordenadas:", sorted)
+}

@@ -1,0 +1,31 @@
+package main
+
+import (
+	"errors"
+	"unicode"
+)
+
+func contarVogais(str string) (int, error) {
+	if str == "" {
+		return 0, errors.New("A string está vazia")
+	}
+
+	vogais := []rune{'a', 'e', 'i', 'o', 'u'}
+	count := 0
+	for _, char := range str {
+		if contains(vogais, unicode.ToLower(char)) {
+			count++
+		}
+	}
+
+	return count, nil
+}
+
+func contains(slice []rune, char rune) bool {
+	for _, item := range slice {
+		if item == char {
+			return true
+		}
+	}
+	return false
+}

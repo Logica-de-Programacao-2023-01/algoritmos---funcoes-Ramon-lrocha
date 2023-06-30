@@ -1,0 +1,21 @@
+package main
+
+import (
+	"errors"
+	"strconv"
+)
+
+func somarDigitos(num int) (int, error) {
+	if num < 0 {
+		return 0, errors.New("O número é negativo")
+	}
+
+	strNum := strconv.Itoa(num)
+	sum := 0
+	for _, digitChar := range strNum {
+		digit, _ := strconv.Atoi(string(digitChar))
+		sum += digit
+	}
+
+	return sum, nil
+}

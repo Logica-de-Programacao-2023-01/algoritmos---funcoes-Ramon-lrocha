@@ -1,0 +1,22 @@
+package main
+
+import "errors"
+
+func segundoMaiorValor(slice []int) (int, error) {
+	if len(slice) == 0 {
+		return 0, errors.New("O slice está vazio")
+	}
+
+	max := slice[0]
+	secondMax := slice[0]
+	for _, num := range slice {
+		if num > max {
+			secondMax = max
+			max = num
+		} else if num > secondMax && num != max {
+			secondMax = num
+		}
+	}
+
+	return secondMax, nil
+}

@@ -1,0 +1,32 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func filterStrings(slice []string) ([]string, error) {
+	if len(slice) == 0 {
+		return nil, errors.New("O slice está vazio")
+	}
+
+	filtered := []string{}
+	for _, str := range slice {
+		if len(str) > 5 {
+			filtered = append(filtered, str)
+		}
+	}
+
+	return filtered, nil
+}
+
+func main() {
+	slice := []string{"hello", "world", "go", "programming"}
+
+	filtered, err := filterStrings(slice)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Strings filtradas:", filtered)
+}

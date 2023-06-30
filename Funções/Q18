@@ -1,0 +1,9 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func applyFunction(slice []int, fn func(int) int) (int, error) {
+	if len
